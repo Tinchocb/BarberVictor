@@ -195,7 +195,7 @@ if ($token) {
             </div>
         <?php endif; ?>
 
-        <a href="index.html" class="btn-gold btn-volver">
+        <a href="index.php" class="btn-gold btn-volver">
             <i class="fas fa-home"></i> VOLVER AL INICIO
         </a>
     </div>

@@ -15,6 +15,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // CORRECCIÓN: Subimos un nivel para ir al index principal
-header("Location: ../index.html");
+header("Location: ../index.php");
 exit;
 ?>

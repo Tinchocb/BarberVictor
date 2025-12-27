@@ -18,6 +18,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css?v=<?= time(); ?>">
     <link rel="stylesheet" href="assets/css/animations.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="assets/css/animations-premium.css?v=<?= time(); ?>">
 
 </head>
 <body>
@@ -25,7 +26,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 <div class="topbar">
     <div class="logo">VICTOR BARBER CLUB</div>
     <div class="nav-actions">
-        <a href="configuracion.php" class="btn-nav"><i class="fas fa-cog"></i> Config</a>
+        <a href="admin_settings.php" class="btn-nav"><i class="fa   s fa-cog"></i> Config</a>
         <a href="controllers/logout.php" class="btn-nav" style="border-color:#dc3545; color:#dc3545;"><i class="fas fa-sign-out-alt"></i></a>
     </div>
 </div>
@@ -52,7 +53,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
         </button>
     </div>
 
-    <div class="hero-next">
+    <div class="hero-next next-turn-card">
         <div class="hero-info" id="proximo-turno-info">
             <h4><i class="fas fa-clock"></i> Próximo Turno</h4>
             <div style="color:#666;">Cargando...</div>
@@ -62,21 +63,33 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
     </div>
 
     <div class="kpi-strip">
-        <div class="kpi-box box-total">
-            <div class="kpi-label">Total Turnos</div>
-            <div class="kpi-val" id="kpi-total">0</div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-label">Total Turnos</div>
+                <div class="kpi-val" id="kpi-total">0</div>
+            </div>
         </div>
-        <div class="kpi-box box-pending">
-            <div class="kpi-label">Pendientes</div>
-            <div class="kpi-val" id="kpi-pendientes" style="color:var(--info)">0</div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-hourglass-half"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-label">Pendientes</div>
+                <div class="kpi-val" id="kpi-pendientes" style="color:var(--info)">0</div>
+            </div>
         </div>
-        <div class="kpi-box box-absent">
-            <div class="kpi-label">Ausentes</div>
-            <div class="kpi-val" id="kpi-ausentes" style="color:var(--danger)">0</div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-user-slash"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-label">Ausentes</div>
+                <div class="kpi-val" id="kpi-ausentes" style="color:var(--danger)">0</div>
+            </div>
         </div>
-        <div class="kpi-box box-money">
-            <div class="kpi-label">Ganancia Estimada</div>
-            <div class="kpi-val" id="kpi-ingresos" style="color:var(--gold)">$0</div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-label">Ganancia Estimada</div>
+                <div class="kpi-val" id="kpi-ingresos" style="color:var(--gold)">$0</div>
+            </div>
         </div>
     </div>
 
@@ -103,6 +116,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
         <div id="tabla-turnos">
             <div style="padding:40px; text-align:center; color:#666;">Cargando datos...</div>
         </div>
+        <div id="pagination-controls" class="pagination"></div>
     </div>
 </div>
 
@@ -237,5 +251,36 @@ function cambiarEstado(id, nestado) {
     fetch('controllers/update_estado.php', { method: 'POST', body: fd }).then(r=>r.json()).then(d=>{ if(d.success) cargarDatos(); });
 }
 </script>
+
+<!-- PREMIUM ANIMATION SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="assets/js/gsap-init.js?v=<?= time(); ?>"></script>
+<script src="assets/js/micro-interactions.js?v=<?= time(); ?>"></script>
+<script>
+    // Animate KPI counters on load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Will be called after cargarDatos() fetches values
+        const originalCargarDatos = cargarDatos;
+        window.cargarDatos = function() {
+            const result = originalCargarDatos.apply(this, arguments);
+            // Animate KPIs after data loads
+            setTimeout(() => {
+                if (typeof animateCounter === 'function') {
+                    const kpiTotal = document.getElementById('kpi-total');
+                    const kpiPendientes = document.getElementById('kpi-pendientes');
+                    const kpiAusentes = document.getElementById('kpi-ausentes');
+                    const kpiIngresos = document.getElementById('kpi-ingresos');
+                    
+                    if (kpiTotal) animateCounter(kpiTotal, parseInt(kpiTotal.textContent) || 0, 1);
+                    if (kpiPendientes) animateCounter(kpiPendientes, parseInt(kpiPendientes.textContent) || 0, 1);
+                    if (kpiAusentes) animateCounter(kpiAusentes, parseInt(kpiAusentes.textContent) || 0, 1);
+                }
+            }, 500);
+            return result;
+        };
+    });
+</script>
+<div id="toast-container" class="toast-container"></div>
+<script src="assets/js/pedidos-ui.js"></script>
 </body>
 </html>
