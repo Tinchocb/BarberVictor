@@ -1,0 +1,116 @@
+/* ESTILOS DE CONFIRMACIÓN (Ticket) */
+
+.confirmacion-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ticket-container {
+  width: 100%;
+  max-width: 400px;
+  background: #141414;
+  border: 1px solid #C5A059;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(197, 160, 89, 0.2);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.check-icon {
+  font-size: 5rem;
+  color: #25D366;
+  margin-bottom: 20px;
+  animation: pop 0.5s ease 0.4s backwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.ticket-title {
+  color: #C5A059;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+}
+
+.ticket-subtitle {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+/* Datos del ticket */
+.dato-fila {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #888;
+}
+
+.dato-valor {
+  color: #fff;
+  font-weight: bold;
+}
+
+.dato-valor.dorado {
+  color: #C5A059;
+}
+
+/* Botones finales */
+.botones-finales {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-google {
+  background: #4285F4;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  transition: var(--transition-default);
+  border: none;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.btn-google:hover {
+  background: #3367D6;
+  transform: translateY(-2px);
+}
+
+.btn-volver-inicio {
+  background: transparent;
+  border: 1px solid #555;
+  color: #aaa;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
+  transition: var(--transition-default);
+}
+
+.btn-volver-inicio:hover {
+  border-color: #fff;
+  color: #fff;
+}

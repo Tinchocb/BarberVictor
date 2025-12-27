@@ -1,0 +1,231 @@
+/* ===== MIS TURNOS - ESTILOS OPTIMIZADOS ===== */
+
+/* Sección Hero */
+.search-hero {
+    animation: fadeInDown 0.5s ease-out;
+}
+
+.hero-title {
+    animation: slideInDown 0.5s ease-out 0.05s both;
+}
+
+.hero-desc {
+    animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+/* Formulario de búsqueda */
+.search-form {
+    animation: fadeInUp 0.5s ease-out 0.15s both;
+}
+
+.search-input,
+.search-btn {
+    animation: slideInUp 0.4s ease-out both;
+}
+
+.search-input { animation-delay: 0.2s; }
+.search-btn { animation-delay: 0.25s; }
+
+.search-input:focus {
+    transform: translateY(-2px);
+}
+
+/* Contenedor de resultados */
+.results-container {
+    animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+.results-title {
+    animation: slideInLeft 0.4s ease-out 0.15s both;
+}
+
+/* Tarjeta de Turno */
+.turno-card {
+    animation: fadeInUp 0.4s ease-out both;
+    border: 1px solid rgba(197,160,89,0.06);
+    background: linear-gradient(180deg, rgba(18,18,18,0.96), rgba(14,14,14,0.98));
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    transition: var(--transition-default);
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.turno-card:nth-child(1) { animation-delay: 0.2s; }
+.turno-card:nth-child(2) { animation-delay: 0.22s; }
+.turno-card:nth-child(3) { animation-delay: 0.24s; }
+.turno-card:nth-child(4) { animation-delay: 0.26s; }
+.turno-card:nth-child(5) { animation-delay: 0.28s; }
+
+.turno-card:hover {
+    border-color: rgba(197,160,89,0.14);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.65), 0 4px 12px rgba(197,160,89,0.04);
+    transform: translateY(-4px);
+}
+
+/* Header del turno */
+.turno-header {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+.turno-card:nth-child(1) .turno-header { animation-delay: 0.4s; }
+.turno-card:nth-child(2) .turno-header { animation-delay: 0.45s; }
+.turno-card:nth-child(3) .turno-header { animation-delay: 0.5s; }
+.turno-card:nth-child(4) .turno-header { animation-delay: 0.55s; }
+.turno-card:nth-child(5) .turno-header { animation-delay: 0.6s; }
+
+/* Fecha del turno */
+.turno-date {
+    animation: slideInLeft 0.5s ease-out both;
+    transition: color 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.turno-card:nth-child(1) .turno-date { animation-delay: 0.45s; }
+.turno-card:nth-child(2) .turno-date { animation-delay: 0.5s; }
+.turno-card:nth-child(3) .turno-date { animation-delay: 0.55s; }
+.turno-card:nth-child(4) .turno-date { animation-delay: 0.6s; }
+.turno-card:nth-child(5) .turno-date { animation-delay: 0.65s; }
+
+.turno-card:hover .turno-date {
+    color: #f0f0f0;
+    text-shadow: 0 0 12px rgba(197,160,89,0.4);
+}
+
+/* Status badge */
+.turno-status {
+    animation: fadeInUp 0.4s ease-out both;
+    animation-delay: 0.15s;
+    transition: var(--transition-default);
+}
+
+.turno-card:hover .turno-status {
+    transform: scale(1.02);
+}
+
+/* Detalles del turno */
+.turno-details {
+    animation: fadeInUp 0.4s ease-out both;
+    animation-delay: 0.1s;
+}
+
+.detail-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    flex: 1;
+    min-width: 180px;
+}
+
+.detail-label {
+    color: #C5A059;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.detail-value {
+    color: #f0f0f0;
+    font-size: 1rem;
+    transition: var(--transition-default);
+}
+
+.turno-card:hover .detail-value {
+    color: #fff;
+}
+
+/* Botones de acción */
+.turno-actions {
+    animation: fadeInUp 0.4s ease-out both;
+    animation-delay: 0.12s;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-turno-action {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: var(--transition-default);
+}
+
+.btn-turno-cancelar {
+    background: rgba(239,68,68,0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,0.4);
+}
+
+.btn-turno-cancelar:hover {
+    background: rgba(239,68,68,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239,68,68,0.2);
+}
+
+.btn-turno-editar {
+    background: rgba(197,160,89,0.2);
+    color: #C5A059;
+    border: 1px solid rgba(197,160,89,0.4);
+}
+
+.btn-turno-editar:hover {
+    background: rgba(197,160,89,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(197,160,89,0.3);
+}
+
+/* Sin resultados */
+.no-results {
+    animation: slideInUp 0.6s ease-out 0.3s both;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    color: rgba(197,160,89,0.3);
+    margin-bottom: 20px;
+    animation: fadeInDown 0.5s ease-out 0.4s both;
+}
+
+.no-results-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.5s ease-out 0.45s both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .turno-card {
+        animation-delay: 0.2s !important;
+    }
+    
+    .turno-card:nth-child(n) .turno-header,
+    .turno-card:nth-child(n) .turno-details,
+    .turno-card:nth-child(n) .turno-actions {
+        animation-delay: 0.3s !important;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .turno-actions {
+        flex-direction: column;
+    }
+    
+    .btn-turno-action {
+        width: 100%;
+    }
+}

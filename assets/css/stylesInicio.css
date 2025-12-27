@@ -1,0 +1,98 @@
+/* --- HERO SECTION (Portada) --- */
+.hero {
+  position: relative;
+  height: 90vh; 
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  /* CORRECCIÓN: Cambiar 'imagenes' por 'img' */
+background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('../img/imagenINICIO.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+}
+/* ... El resto del archivo CSS estaba bien ... */
+
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  color: var(--dorado);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  font-weight: 300;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.hero-buttons {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+}
+
+/* --- CARACTERÍSTICAS (3 Columnas) --- */
+.features-section {
+  padding: 80px 20px;
+  background-color: var(--bg-dark);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjeta estilo Admin */
+.feature-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--dorado);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--dorado);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Home */
+@media (max-width: 768px) {
+  .hero-title { font-size: 3.5rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+}

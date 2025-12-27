@@ -1,0 +1,460 @@
+/* 
+   ESTILOS COMPLEMENTARIOS PARA RESERVA.PHP
+   =========================================
+   Agregar esto al final de assets/css/global.css si se necesita
+   más personalización de los componentes de reserva
+*/
+
+/* Validaciones de formulario */
+input[type="text"]:invalid,
+input[type="email"]:invalid,
+input[type="tel"]:invalid,
+input[type="number"]:invalid {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="tel"]:valid,
+input[type="number"]:valid {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+/* Placeholder mejorado */
+input::placeholder {
+    opacity: 0.7;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Select styling */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C5A059' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+}
+
+/* Animaciones para transiciones de paso */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+/* Tooltip para ayuda */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--accent-gold);
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid rgba(197, 160, 89, 0.2);
+    border-top: 3px solid var(--accent-gold);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Alert boxes mejorados */
+.alert {
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideInUp 0.3s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.15);
+    border-left-color: #10b981;
+    color: #10b981;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.15);
+    border-left-color: #ef4444;
+    color: #ef4444;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.15);
+    border-left-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.alert-info {
+    background: rgba(59, 130, 246, 0.15);
+    border-left-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.alert i {
+    font-size: 1.2rem;
+}
+
+/* Progress bar mejorado */
+.progress-bar {
+    height: 4px;
+    background: var(--border-primary);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px var(--glow-gold);
+}
+
+/* Skeleton loading (para cuando carga contenido dinamico) */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton-text {
+    height: 12px;
+    margin-bottom: 8px;
+}
+
+.skeleton-title {
+    height: 20px;
+    margin-bottom: 12px;
+}
+
+/* Badge/Tag styling */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.badge-success {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.badge-danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.badge-gold {
+    background: rgba(197, 160, 89, 0.2);
+    color: var(--accent-gold);
+}
+
+/* Checkmark animado */
+@keyframes checkmark {
+    0% {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 50;
+    }
+    100% {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 0;
+    }
+}
+
+.checkmark-circle {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+}
+
+.checkmark-circle .checkmark {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid var(--accent-gold);
+    animation: rotate-circle 0.6s cubic-bezier(0.65, 0.82, 0.85, 0.85);
+}
+
+@keyframes rotate-circle {
+    0% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.checkmark-circle .checkmark::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 45px;
+    border: solid var(--accent-gold);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    left: 18px;
+    top: 8px;
+    animation: scaleIn 0.3s cubic-bezier(0.65, 0.82, 0.85, 0.85) 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+/* Divider estilizado */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.3), transparent);
+    margin: 30px 0;
+}
+
+/* Pills/Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-primary);
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.tabs .tab {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--duration-normal);
+    border-bottom: 2px solid transparent;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tabs .tab:hover {
+    color: var(--accent-gold);
+}
+
+.tabs .tab.active {
+    color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+    transition: color var(--duration-normal);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-gold);
+}
+
+.breadcrumb .separator {
+    color: var(--text-muted);
+}
+
+.breadcrumb .current {
+    color: var(--accent-gold);
+}
+
+/* Contador de caracteres */
+.char-counter {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-align: right;
+}
+
+.char-counter.warning {
+    color: #f59e0b;
+}
+
+.char-counter.danger {
+    color: #ef4444;
+}
+
+/* Toggle switch */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-primary);
+    transition: var(--transition-default);
+    border-radius: 24px;
+}
+
+.toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: var(--transition-default);
+    border-radius: 50%;
+}
+
+.toggle input:checked + .slider {
+    background-color: var(--accent-gold);
+}
+
+.toggle input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Media queries adicionales para componentes */
+@media (max-width: 480px) {
+    .tabs {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .breadcrumb {
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+    }
+    
+    .tooltip .tooltiptext {
+        width: 150px;
+        margin-left: -75px;
+    }
+}
